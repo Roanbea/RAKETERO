@@ -1,114 +1,467 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="pglobals.css" />
-    <link rel="stylesheet" href="profilestyle.css" />
-  </head>
-  <body>
-    <div class="wireframe">
-      <div class="group">
-        <a href="index.html" class="back-button">
-  <span class="arrow">&larr;</span> Back to Home
-</a>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<div class="edit-icon" onclick="enableEdit()">
-  <img src="img/edit-icon.svg" alt="Edit" id="edit-img" />
-</div>
-        <div class="rectangle"></div>
-        <p class="creative-production">
-          <span class="text-wrapper">Creative/Production Assistant<br />BIGHIT Labels </span>
-          <span class="span">Mar 2017 – Nov 2020 (3 years)</span>
-        </p>
-        <img class="ellipse" src="img/ellipse-6.png" />
-        <img class="img" src="img/ellipse-7.png" />
-        <img class="ellipse-2" src="img/ellipse-8.png" />
-        <img class="ellipse-3" src="img/ellipse-9.png" />
-        <img class="line" src="img/line-2.svg" />
-        <img class="line-2" src="img/line-3.svg" />
-        <img class="line-3" src="img/line-4.svg" />
-        <div class="div">
-          <div class="rectangle-2"></div>
-          <div class="text-icons">
-            <div class="logo-text-icon">
-              <div class="logo"><img class="check" src="img/check-1-1.svg" /></div>
-              <p class="your-go-to-platform">
-                Your go-to platform for finding flexible gigs and freelance work across the Philippines. Whether
-                you&#39;re a student, professional, or side hustler, every raket helps you earn and grow.
-              </p>
-            </div>
-            <div class="text">
-              <div class="text-wrapper-2">Company</div>
-              <div class="text-2">
-                <div class="text-wrapper-3">About Us</div>
-                <div class="text-wrapper-4">Our Team</div>
-                <div class="text-wrapper-5">Partners</div>
-                <div class="text-wrapper-4">For Candidates</div>
-                <div class="text-wrapper-6">For Employers</div>
-              </div>
-            </div>
-            <div class="text-3">
-              <div class="text-wrapper-2">Job Categories</div>
-              <div class="text-2">
-                <div class="digital-onine-tasks">Digital &amp; Onine tasks</div>
-                <div class="text-wrapper-7">Creative Services</div>
-                <div class="text-wrapper-8">Local Services</div>
-                <div class="text-wrapper-7">Lifestyle &amp; Wellness</div>
-                <div class="text-wrapper-7">Business Support</div>
-              </div>
-            </div>
-            <div class="text-input-button">
-              <div class="text-wrapper-2">Newsletter</div>
-              <p class="p">Get the latest gigs and platform updates straight to your inbox.</p>
-              <input class="input" placeholder="Email Address" type="email" />
-              <button class="button"><div class="text-wrapper-9">Get Updates</div></button>
-            </div>
-          </div>
-          <div class="copyright-RAKETERO">© Copyright RAKETERO&nbsp;&nbsp;2026.</div>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .profile-header {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 40px 30px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      margin: 0 auto 20px;
+    }
+
+    .profile-header h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .profile-header p {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .profile-content {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .profile-section {
+      margin-bottom: 25px;
+    }
+
+    .profile-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-value {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .edit-section {
+      margin-bottom: 20px;
+    }
+
+    .edit-section label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .edit-section input,
+    .edit-section textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    .edit-section input:focus,
+    .edit-section textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .edit-section textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+      flex: 1;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+    }
+
+    .btn-primary:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #333;
+      flex: 1;
+    }
+
+    .btn-secondary:hover {
+      background: #e0e0e0;
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+      flex: 1;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f0f0f0;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .view-mode.hidden {
+      display: none;
+    }
+
+    .edit-mode {
+      display: none;
+    }
+
+    .edit-mode.active {
+      display: block;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .header-nav a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .header-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .error-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-nav">
+      <a href="index.html">← Back to Home</a>
+      <a id="logoutBtn" onclick="handleLogout()">Sign Out</a>
+    </div>
+
+    <div id="loadingIndicator" class="loading">
+      <div class="spinner"></div>
+      <p style="margin-top: 15px;">Loading profile...</p>
+    </div>
+
+    <div id="errorContainer" class="error-message"></div>
+    <div id="successContainer" class="success-message"></div>
+
+    <div id="viewMode" class="view-mode hidden">
+      <div class="profile-header">
+        <div class="avatar" id="avatarDisplay">--</div>
+        <h1 id="displayName">Loading...</h1>
+        <p id="displayEmail">Loading...</p>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-section">
+          <div class="section-label">Username</div>
+          <div class="section-value" id="displayUsername">-</div>
         </div>
-        <div class="group-2">
-          <div class="group-3">
-            <div class="rectangle-3"></div>
-            <img class="chatgpt-image-feb" src="img/chatgpt-image-feb-5-2026-06-05-14-PM-2.png" />
-            <img class="chatgpt-image-feb-2" src="img/chatgpt-image-feb-5-2026-06-05-14-PM-3.png" />
-            <div class="text-wrapper-10">HOME</div>
-            <div class="text-wrapper-11">JOBS</div>
-            <div class="text-wrapper-12">ABOUT US</div>
-            <div class="text-wrapper-13">CONTACT US</div>
-            <div class="text-wrapper-14">My Profile</div>
-          </div>
-          <img class="ellipse-4" src="img/ellipse-3.png" />
+
+        <div class="profile-section">
+          <div class="section-label">Phone</div>
+          <div class="section-value" id="displayPhone">-</div>
         </div>
-        <img class="ellipse-5" src="img/ellipse-4.png" />
-        <div class="text-wrapper-15">JUAN DELA CRUZ</div>
-        <div class="text-wrapper-16">Freelancer</div>
-        <div class="text-wrapper-17">ABOUT ME</div>
-        <div class="text-wrapper-18">WORK EXPERIENCE</div>
-        <div class="text-wrapper-19">EDUCATION</div>
-        <p class="lorem-ipsum-dolor">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />Praesent commodo cursus magna, vel scelerisque
-          nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.
-        </p>
-        <p class="mahattan-NYC-USA">Mahattan, NYC, USA <br />(+01) 211-123-5678</p>
-        <p class="ateneo-de-manila">
-          Ateneo de Manila University<br />Bachelor of Arts in Communication<br />2012-2016
-        </p>
-        <p class="ateneo-de-manila-2">
-          Ateneo de Manila University<br />Masters of Arts in Communication<br />2021-2024
-        </p>
-        <p class="lorem-ipsum-dolor-2">
-          <span class="span"
-            ><br />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero, dolores, officia quibusdam
-            architecto sapiente eos voluptas odit ab veniam porro quae possimus itaque, quas! Tempora sequi nobis, atque
-            incidunt!<br /><br
-          /></span>
-          <span class="text-wrapper-20">Projects: 3</span>
-        </p>
+
+        <div class="profile-section">
+          <div class="section-label">Location</div>
+          <div class="section-value" id="displayLocation">-</div>
+        </div>
+
+        <div class="profile-section">
+          <div class="section-label">Bio</div>
+          <div class="section-value" id="displayBio">-</div>
+        </div>
+
+        <div class="profile-section">
+          <div class="section-label">Account Type</div>
+          <div class="section-value" id="displayRole">-</div>
+        </div>
+
+        <div class="button-group">
+          <button class="btn-primary" onclick="enterEditMode()">Edit Profile</button>
+        </div>
       </div>
     </div>
-  </body>
-  <script src="profile.js"></script>
 
+    <div id="editMode" class="edit-mode">
+      <div class="profile-header">
+        <div class="avatar" id="editAvatarDisplay">--</div>
+        <h1>Edit Your Profile</h1>
+      </div>
+
+      <div class="profile-content">
+        <form id="editProfileForm">
+          <div class="edit-section">
+            <label for="editFullName">Full Name</label>
+            <input type="text" id="editFullName" placeholder="Your full name" required>
+          </div>
+
+          <div class="edit-section">
+            <label for="editUsername">Username</label>
+            <input type="text" id="editUsername" placeholder="Your username" required>
+          </div>
+
+          <div class="edit-section">
+            <label for="editPhone">Phone</label>
+            <input type="tel" id="editPhone" placeholder="Your phone number">
+          </div>
+
+          <div class="edit-section">
+            <label for="editLocation">Location</label>
+            <input type="text" id="editLocation" placeholder="Your location">
+          </div>
+
+          <div class="edit-section">
+            <label for="editBio">Bio</label>
+            <textarea id="editBio" placeholder="Tell us about yourself"></textarea>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="btn-primary" id="saveBtn">Save Changes</button>
+            <button type="button" class="btn-secondary" onclick="exitEditMode()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabaseClient.js"></script>
+  <script>
+    let currentUser = null;
+    let currentProfile = null;
+
+    async function loadProfile() {
+      const { user, profile } = await checkAuthState();
+
+      if (!user) {
+        window.location.href = 'auth.html';
+        return;
+      }
+
+      currentUser = user;
+      currentProfile = profile;
+      displayProfile();
+    }
+
+    function displayProfile() {
+      document.getElementById('loadingIndicator').style.display = 'none';
+      document.getElementById('viewMode').classList.remove('hidden');
+
+      const initials = (currentProfile?.username || currentUser.email).substring(0, 2).toUpperCase();
+      document.getElementById('avatarDisplay').textContent = initials;
+      document.getElementById('editAvatarDisplay').textContent = initials;
+
+      document.getElementById('displayName').textContent = currentProfile?.full_name || 'No name set';
+      document.getElementById('displayEmail').textContent = currentUser.email;
+      document.getElementById('displayUsername').textContent = currentProfile?.username || '-';
+      document.getElementById('displayPhone').textContent = currentProfile?.phone || '-';
+      document.getElementById('displayLocation').textContent = currentProfile?.location || '-';
+      document.getElementById('displayBio').textContent = currentProfile?.bio || '-';
+      document.getElementById('displayRole').textContent = (currentProfile?.role || 'user').charAt(0).toUpperCase() + (currentProfile?.role || 'user').slice(1);
+    }
+
+    function enterEditMode() {
+      document.getElementById('editFullName').value = currentProfile?.full_name || '';
+      document.getElementById('editUsername').value = currentProfile?.username || '';
+      document.getElementById('editPhone').value = currentProfile?.phone || '';
+      document.getElementById('editLocation').value = currentProfile?.location || '';
+      document.getElementById('editBio').value = currentProfile?.bio || '';
+
+      document.getElementById('viewMode').classList.add('hidden');
+      document.getElementById('editMode').classList.add('active');
+    }
+
+    function exitEditMode() {
+      document.getElementById('editMode').classList.remove('active');
+      document.getElementById('viewMode').classList.remove('hidden');
+      clearMessages();
+    }
+
+    function showMessage(message, isError = false) {
+      const container = isError ? document.getElementById('errorContainer') : document.getElementById('successContainer');
+      container.textContent = message;
+      container.classList.add('show');
+
+      setTimeout(() => {
+        container.classList.remove('show');
+      }, 3000);
+    }
+
+    function clearMessages() {
+      document.getElementById('errorContainer').classList.remove('show');
+      document.getElementById('successContainer').classList.remove('show');
+    }
+
+    document.getElementById('editProfileForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const updates = {
+        full_name: document.getElementById('editFullName').value.trim(),
+        username: document.getElementById('editUsername').value.trim(),
+        phone: document.getElementById('editPhone').value.trim(),
+        location: document.getElementById('editLocation').value.trim(),
+        bio: document.getElementById('editBio').value.trim()
+      };
+
+      const saveBtn = document.getElementById('saveBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving...';
+
+      const result = await updateUserProfile(currentUser.id, updates);
+
+      saveBtn.disabled = false;
+      saveBtn.textContent = 'Save Changes';
+
+      if (result.success) {
+        currentProfile = result.data;
+        document.getElementById('editMode').classList.remove('active');
+        document.getElementById('viewMode').classList.remove('hidden');
+        displayProfile();
+        showMessage('Profile updated successfully!');
+      } else {
+        showMessage('Failed to update profile: ' + (result.error?.message || 'Unknown error'), true);
+      }
+    });
+
+    async function handleLogout() {
+      if (confirm('Are you sure you want to sign out?')) {
+        const success = await signOut();
+        if (success) {
+          window.location.href = 'index.html';
+        } else {
+          alert('Failed to sign out. Please try again.');
+        }
+      }
+    }
+
+    loadProfile();
+  </script>
+</body>
 </html>
-

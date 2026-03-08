@@ -1,150 +1,407 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="desktop">
-      <div class="group">
-        <img class="gemini-generated" src="img/Gemini_Generated_Image_wdck8nwdck8nwdck.png" />
-        <div class="div-wrapper"><p class="text-wrapper">Find your next Gig today</p></div>
-        <div class="div"><div class="text-wrapper-2">Where Every Gig Counts.</div></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .nav-menu a:hover {
+      color: #667eea;
+    }
+
+    .profile-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s;
+      font-size: 14px;
+    }
+
+    .profile-button:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-menu {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      min-width: 250px;
+      z-index: 200;
+      display: none;
+    }
+
+    .profile-menu.show {
+      display: block;
+    }
+
+    .profile-menu-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .profile-menu-header .username {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 3px;
+    }
+
+    .profile-menu-header .email {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .profile-menu-items {
+      list-style: none;
+      padding: 10px 0;
+    }
+
+    .profile-menu-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .profile-menu-item:hover {
+      background: #f5f7fa;
+    }
+
+    .profile-menu-item a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .profile-menu-divider {
+      height: 1px;
+      background: #f0f0f0;
+      margin: 10px 0;
+    }
+
+    .profile-menu-item.logout a {
+      color: #e74c3c;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f7fa;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .auth-hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 15px 20px;
+      }
+
+      .nav-menu {
+        width: 100%;
+        gap: 15px;
+        margin-top: 15px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .profile-menu {
+        right: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MyApp</div>
+      <ul class="nav-menu">
+        <li id="authSection">
+          <button class="btn-secondary" id="signInBtn" onclick="goToAuth()">SIGN IN</button>
+        </li>
+        <li id="profileSection" class="auth-hidden">
+          <button class="profile-button" id="profileBtn" onclick="toggleProfileMenu()">--</button>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="profileMenu" class="profile-menu">
+      <div class="profile-menu-header">
+        <div class="username" id="menuUsername">Loading...</div>
+        <div class="email" id="menuEmail">Loading...</div>
       </div>
-      <div class="group-2">
-        <div class="rectangle"></div>
-        <div class="text-wrapper-3">Job title, keyword</div>
-        <div class="rectangle-2"></div>
-        <div class="text-wrapper-4">Search Job</div>
-      </div>
-      <div class="group-3"><div class="text-wrapper-5"><a href="SignUp.html">Sign up</a></div></div>
-      <div class="group-4"><div class="text-wrapper-6">to get started</div></div>
-      <div class="group-5">
-        <div class="rectangle-3"></div>
-        <img class="chatgpt-image-feb" src="img/RaketeroLogo2.png" />
-        <img class="img" src="img/name.png" />
-        <div class="text-wrapper-7" id="signInBtn">SIGN IN</div>
-        <div class="text-wrapper-8" id="homeBtn">HOME</div>
-        <div class="text-wrapper-9" id="jobsBtn">JOBS</div>
-        <div class="text-wrapper-10" id="aboutBtn">ABOUT US</div>
-        <div class="text-wrapper-11" id="contactBtn">CONTACT US</div>
-        <div class="group-6">
-          <div class="group-7"></div>
-          <div class="text-wrapper-12" id="postJobBtn"><a href= "post.html">POST A JOB</a></div>
-        </div>
-      </div>
-      <div class="group-8">
-        <div class="icon-text">
-          <img class="icon-bg" src="img/imageJob.png" />
-          <div class="text">
-            <div class="text-wrapper-13">10***</div>
-            <div class="text-wrapper-14">Jobs</div>
-          </div>
-        </div>
-        <div class="icon-text-2">
-          <img class="icon-bg" src="img/imageSeek.png" />
-          <div class="text">
-            <div class="text-wrapper-15">15***</div>
-            <div class="text-wrapper-14">Seekers</div>
-          </div>
-        </div>
-        <div class="icon-text-3">
-          <img class="icon-bg" src="img/imageEmployer.png" />
-          <div class="text-2">
-            <div class="text-wrapper-13">2***</div>
-            <div class="text-wrapper-14">Employers</div>
-          </div>
-        </div>
-      </div>
-      <div class="group-9">
-        <div class="rectangle-4"></div>
-        <div class="text-icons">
-          <div class="logo-text-icon">
-            <div class="logo"><img class="check" src="img/RaketeroLogo2.png" /></div>
-            <p class="your-go-to-platform">
-              Your go-to platform for finding flexible gigs and freelance work across the Philippines. Whether
-              you&#39;re a student, professional, or side hustler, every raket helps you earn and grow.
-            </p>
-          </div>
-          <div class="text-3">
-            <div class="text-wrapper-16">Company</div>
-            <div class="text-4">
-              <div class="text-wrapper-17">About Us</div>
-              <div class="text-wrapper-18">Our Team</div>
-              <div class="text-wrapper-19">Partners</div>
-              <div class="text-wrapper-18">For Candidates</div>
-              <div class="text-wrapper-20">For Employers</div>
-            </div>
-          </div>
-          <div class="text-5">
-            <div class="text-wrapper-16">Job Categories</div>
-            <div class="text-4">
-              <div class="digital-online-tasks">Digital &amp; Online tasks</div>
-              <div class="text-wrapper-21">Creative Services</div>
-              <div class="text-wrapper-21">Local Services</div>
-              <div class="text-wrapper-21">Lifestyle &amp; Wellness</div>
-              <div class="text-wrapper-21">Business Support</div>
-            </div>
-          </div>
-          <div class="text-input-button">
-            <div class="text-wrapper-16">Newsletter</div>
-            <p class="p">Get the latest gigs and platform updates straight to your inbox.</p>
-            <input class="input" placeholder="Email Address" type="email" />
-            <button class="button"><div class="text-wrapper-22">Get Updates</div></button>
-          </div>
-        </div>
-        <div class="copyright-RAKETERO">© Copyright RAKETERO&nbsp;&nbsp;2026.</div>
-      </div>
-      <div class="group-10">
-        <div class="rectangle-5"></div>
-        <img class="screenshot" src="img/screenshot-2026-02-06-201456-4.png" />
-        <img class="screenshot-2" src="img/screenshot-2026-02-06-201456-3.png" />
-        <div class="rectangle-6"></div>
-        <div class="rectangle-7"></div>
-        <div class="rectangle-8"></div>
-        <div class="rectangle-9"></div>
-        <div class="rectangle-10"></div>
-        <div class="digital-online-tasks-2">Digital &amp; Online tasks</div>
-        <div class="text-wrapper-23">Creative Services</div>
-        <div class="text-wrapper-24">Local Services</div>
-        <div class="lifestyle-wellness">Lifestyle &amp; Wellness</div>
-        <div class="text-wrapper-25">Business Support</div>
-      </div>
-      <div class="text-wrapper-26">JOB CATEGORIES</div>
-      <div class="text-wrapper-27">GET YOUR JOBS NOW</div>
-      <p class="text-wrapper-28">
-        RAKETERO connects freelancers to real opportunities. With thousands of gigs available, you can showcase your
-        skills, earn on your own terms, and build a future rooted in community and creativity.
-      </p>
-      <button class="button-2" id="findJobBtn"><div class="text-wrapper-29">FIND YOUR JOB</div></button>
+      <ul class="profile-menu-items">
+        <li class="profile-menu-item">
+          <a href="profile.html">View Profile</a>
+        </li>
+        <li class="profile-menu-item">
+          <a href="profile.html">Edit Profile</a>
+        </li>
+        <li class="profile-menu-divider"></li>
+        <li class="profile-menu-item logout">
+          <a onclick="handleLogout()" style="cursor: pointer;">Sign Out</a>
+        </li>
+      </ul>
     </div>
-    <script>
-      document.getElementById('signInBtn').onclick = function() {
-        window.location.href = 'auth.html';
-      };
-      document.getElementById('homeBtn').onclick = function() {
-        window.location.href = 'Raketero.html';
-      };
-      document.getElementById('jobsBtn').onclick = function() {
-        window.location.href = 'jobs.html';
-      };
-      document.getElementById('aboutBtn').onclick = function() {
-        window.location.href = 'about.html';
-      };
-      document.getElementById('contactBtn').onclick = function() {
-        window.location.href = 'contact.html';
-      };
-      document.getElementById('postJobBtn').onclick = function() {
-        window.location.href = 'post.html';
-      };
-      document.getElementById('findJobBtn').onclick = function() {
-        window.location.href = 'jobs.html';
-      };
-    </script>
-  </body>
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to MyApp</h1>
+    <p>Your platform for amazing experiences</p>
+    <div class="hero-buttons" id="heroButtons">
+      <button class="btn-primary" onclick="goToAuth()">Get Started</button>
+      <button class="btn-secondary" onclick="alert('Learn more about our features')">Learn More</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <h2>Why Choose Us?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Easy to Use</h3>
+        <p>Simple and intuitive interface designed for everyone</p>
+      </div>
+      <div class="feature-card">
+        <h3>Secure</h3>
+        <p>Your data is encrypted and protected</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fast</h3>
+        <p>Lightning-fast performance for smooth experience</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabaseClient.js"></script>
+  <script>
+    let profileMenuOpen = false;
+
+    async function initializeAuth() {
+      const { user, profile } = await checkAuthState();
+
+      if (user) {
+        showAuthenticatedUI(user, profile);
+      } else {
+        showUnauthenticatedUI();
+      }
+    }
+
+    function showAuthenticatedUI(user, profile) {
+      document.getElementById('authSection').classList.add('auth-hidden');
+      document.getElementById('profileSection').classList.remove('auth-hidden');
+
+      const initials = (profile?.username || user.email).substring(0, 2).toUpperCase();
+      document.getElementById('profileBtn').textContent = initials;
+
+      document.getElementById('menuUsername').textContent = profile?.username || user.email.split('@')[0];
+      document.getElementById('menuEmail').textContent = user.email;
+
+      document.getElementById('heroButtons').innerHTML = `
+        <button class="btn-primary" onclick="window.location.href='profile.html'">View Profile</button>
+        <button class="btn-secondary" onclick="alert('Explore more features')">Explore</button>
+      `;
+    }
+
+    function showUnauthenticatedUI() {
+      document.getElementById('authSection').classList.remove('auth-hidden');
+      document.getElementById('profileSection').classList.add('auth-hidden');
+
+      document.getElementById('heroButtons').innerHTML = `
+        <button class="btn-primary" onclick="goToAuth()">Get Started</button>
+        <button class="btn-secondary" onclick="alert('Learn more about our features')">Learn More</button>
+      `;
+    }
+
+    function toggleProfileMenu() {
+      profileMenuOpen = !profileMenuOpen;
+      const menu = document.getElementById('profileMenu');
+      menu.classList.toggle('show', profileMenuOpen);
+    }
+
+    function goToAuth() {
+      window.location.href = 'auth.html';
+    }
+
+    async function handleLogout() {
+      if (confirm('Are you sure you want to sign out?')) {
+        const success = await signOut();
+        if (success) {
+          profileMenuOpen = false;
+          document.getElementById('profileMenu').classList.remove('show');
+          showUnauthenticatedUI();
+          initializeAuth();
+        } else {
+          alert('Failed to sign out. Please try again.');
+        }
+      }
+    }
+
+    document.addEventListener('click', function(event) {
+      const profileBtn = document.getElementById('profileBtn');
+      const profileMenu = document.getElementById('profileMenu');
+
+      if (!profileBtn || !profileMenu) return;
+
+      if (!profileBtn.contains(event.target) && !profileMenu.contains(event.target)) {
+        if (profileMenuOpen) {
+          profileMenuOpen = false;
+          profileMenu.classList.remove('show');
+        }
+      }
+    });
+
+    initializeAuth();
+  </script>
+</body>
 </html>
-
-
-

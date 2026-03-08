@@ -1,96 +1,274 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="authglobals.css" />
-    <link rel="stylesheet" href="styleauth.css" />
-  </head>
-  <body>
-    <div class="frame">
-      <div class="group">
-        <div class="rectangle"></div>
-        <img class="chatgpt-image-feb" src="img/chatgpt-image-feb-5-2026-06-05-14-PM-2.png" />
-        <img class="img" src="img/chatgpt-image-feb-5-2026-06-05-14-PM-3.png" />
-        <a href="index.html"><div class="text-wrapper">SIGN IN</div></a>
-        <div class="div">HOME</div>
-        <div class="text-wrapper-2">JOBS</div>
-        <div class="text-wrapper-3">ABOUT US</div>
-        <div class="text-wrapper-4">CONTACT US</div>
-        <div class="group-2">
-          <div class="group-3"></div>
-          <div class="text-wrapper-5">POST A JOB</div>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .auth-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #5568d3;
+    }
+
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .toggle-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .toggle-link a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .toggle-link a:hover {
+      text-decoration: underline;
+    }
+
+    .auth-form.hidden {
+      display: none;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .success {
+      color: #27ae60;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div id="loginForm" class="auth-form">
+      <h1>Sign In</h1>
+      <p class="subtitle">Access your account</p>
+
+      <div class="form-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="your@email.com" required>
       </div>
-      <div class="group-4">
-        <div class="rectangle-2"></div>
-        <div class="text-icons">
-          <div class="logo-text-icon">
-            <div class="logo"><img class="check" src="img/check-1-1.svg" /></div>
-            <p class="your-go-to-platform">
-              Your go-to platform for finding flexible gigs and freelance work across the Philippines. Whether
-              you&#39;re a student, professional, or side hustler, every raket helps you earn and grow.
-            </p>
-          </div>
-          <div class="text">
-            <div class="text-wrapper-6">Company</div>
-            <div class="text-2">
-              <div class="text-wrapper-7">About Us</div>
-              <div class="text-wrapper-8">Our Team</div>
-              <div class="text-wrapper-9">Partners</div>
-              <div class="text-wrapper-8">For Candidates</div>
-              <div class="text-wrapper-10">For Employers</div>
-            </div>
-          </div>
-          <div class="text-3">
-            <div class="text-wrapper-6">Job Categories</div>
-            <div class="text-2">
-              <div class="digital-onine-tasks">Digital &amp; Onine tasks</div>
-              <div class="text-wrapper-11">Creative Services</div>
-              <div class="text-wrapper-12">Local Services</div>
-              <div class="text-wrapper-11">Lifestyle &amp; Wellness</div>
-              <div class="text-wrapper-11">Business Support</div>
-            </div>
-          </div>
-          <div class="text-input-button">
-            <div class="text-wrapper-6">Newsletter</div>
-            <p class="p">Get the latest gigs and platform updates straight to your inbox.</p>
-            <input class="input" placeholder="Email Address" type="email" />
-            <button class="button"><div class="text-wrapper-13">Get Updates</div></button>
-          </div>
-        </div>
-        <div class="copyright-RAKETERO">© Copyright RAKETERO&nbsp;&nbsp;2026.</div>
+
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password" required>
       </div>
-      <div class="group-5">
-        <div class="rectangle-3"></div>
-        <div class="group-6"></div>
-        <div class="text-wrapper-14">Don’t have an account?</div>
-        <div class="text-wrapper-15">Remember Me</div>
-        <div class="text-wrapper-16">LOG IN YOUR ACCOUNT</div>
-        <div class="group-wrapper">
-          <div class="div-wrapper">
-            <div class="group-7">
-              <div class="group-8">
-                <div class="rectangle-4"></div>
-                <img class="image" src="img/image-2.png" />
-                <div class="text-wrapper-17">Username</div>
-              </div>
-              <div class="group-9"><div class="text-wrapper-18">Email</div></div>
-              <div class="group-10">
-                <div class="rectangle-4"></div>
-                <img class="image-2" src="img/image-4.png" />
-                <img class="image-3" src="img/image-5.png" />
-                <div class="text-wrapper-19">Password</div>
-              </div>
-              <div class="group-11">
-                <div class="rectangle-5"></div>
-                <div class="text-wrapper-20">SUBMIT</div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <button id="loginBtn">Sign In</button>
+
+      <div class="toggle-link">
+        Don't have an account? <a onclick="toggleForms()">Sign Up</a>
       </div>
-      <div class="rectangle-6"></div>
     </div>
-  </body>
+
+    <div id="signupForm" class="auth-form hidden">
+      <h1>Create Account</h1>
+      <p class="subtitle">Join our community</p>
+
+      <div class="form-group">
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" placeholder="Choose a username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="your@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="At least 6 characters" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupRole">Account Type</label>
+        <select id="signupRole" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+          <option value="user">User</option>
+          <option value="employer">Employer</option>
+        </select>
+      </div>
+
+      <button id="signupBtn">Create Account</button>
+
+      <div class="toggle-link">
+        Already have an account? <a onclick="toggleForms()">Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabaseClient.js"></script>
+  <script>
+    function toggleForms() {
+      document.getElementById('loginForm').classList.toggle('hidden');
+      document.getElementById('signupForm').classList.toggle('hidden');
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', async function() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      if (!email || !password) {
+        alert('Please enter both email and password');
+        return;
+      }
+
+      this.disabled = true;
+      this.textContent = 'Signing in...';
+
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+
+        if (error) throw error;
+
+        window.location.href = 'index.html';
+      } catch (err) {
+        alert('Sign in failed: ' + err.message);
+      } finally {
+        this.disabled = false;
+        this.textContent = 'Sign In';
+      }
+    });
+
+    document.getElementById('signupBtn').addEventListener('click', async function() {
+      const username = document.getElementById('signupUsername').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const role = document.getElementById('signupRole').value;
+
+      if (!username || !email || !password) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters');
+        return;
+      }
+
+      this.disabled = true;
+      this.textContent = 'Creating account...';
+
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              username,
+              full_name: username,
+              role
+            }
+          }
+        });
+
+        if (error) throw error;
+
+        alert('Account created! Redirecting to sign in...');
+        toggleForms();
+        document.getElementById('loginEmail').value = email;
+        document.getElementById('loginPassword').value = '';
+      } catch (err) {
+        alert('Sign up failed: ' + err.message);
+      } finally {
+        this.disabled = false;
+        this.textContent = 'Create Account';
+      }
+    });
+  </script>
+</body>
 </html>
